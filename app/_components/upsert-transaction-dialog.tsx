@@ -40,7 +40,7 @@ import {
 } from "@prisma/client";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { upsertTransaction } from "../_actions/add-transaction";
+import { upsertTransaction } from "../_actions/upsert-transaction";
 
 interface UpsertTransactionDialogProps {
   isOpen: boolean;
@@ -50,28 +50,36 @@ interface UpsertTransactionDialogProps {
 }
 
 const formSchema = z.object({
-  name: z.string().trim().min(1, { message: "O nome é obrigatório." }),
+  name: z.string().trim().min(1, {
+    message: "O nome é obrigatório.",
+  }),
   amount: z
-    .number({ required_error: "O valor é obrigatório." })
-    .positive({ message: "O valor deve ser positivo." }),
+    .number({
+      required_error: "O valor é obrigatório.",
+    })
+    .positive({
+      message: "O valor deve ser positivo.",
+    }),
   type: z.nativeEnum(TransactionType, {
     required_error: "O tipo é obrigatório.",
   }),
   category: z.nativeEnum(TransactionCategory, {
-    required_error: "A categoria é obrigatório.",
+    required_error: "A categoria é obrigatória.",
   }),
   paymentMethod: z.nativeEnum(TransactionPaymentMethod, {
     required_error: "O método de pagamento é obrigatório.",
   }),
-  date: z.date({ required_error: "A data é obrigatória." }),
+  date: z.date({
+    required_error: "A data é obrigatória.",
+  }),
 });
 
 type FormSchema = z.infer<typeof formSchema>;
 
 const UpsertTransactionDialog = ({
   isOpen,
-  transactionId,
   defaultValues,
+  transactionId,
   setIsOpen,
 }: UpsertTransactionDialogProps) => {
   const form = useForm<FormSchema>({
@@ -109,11 +117,10 @@ const UpsertTransactionDialog = ({
       }}
     >
       <DialogTrigger asChild></DialogTrigger>
-
       <DialogContent>
         <DialogHeader>
           <DialogTitle>
-            {isUpdate ? "Atualizar" : "Adicionar"} Transação
+            {isUpdate ? "Atualizar" : "Adicionar"} transação
           </DialogTitle>
           <DialogDescription>Insira as informações abaixo</DialogDescription>
         </DialogHeader>
@@ -143,11 +150,9 @@ const UpsertTransactionDialog = ({
                     <MoneyInput
                       placeholder="Digite o valor..."
                       value={field.value}
-                      onValueChange={({
-                        floatValue,
-                      }: {
-                        floatValue?: number;
-                      }) => field.onChange(floatValue)}
+                      onValueChange={({ floatValue }) =>
+                        field.onChange(floatValue)
+                      }
                       onBlur={field.onBlur}
                       disabled={field.disabled}
                     />
@@ -168,7 +173,7 @@ const UpsertTransactionDialog = ({
                   >
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue placeholder="Selecione o tipo de transação." />
+                        <SelectValue placeholder="Select a verified email to display" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
@@ -195,7 +200,7 @@ const UpsertTransactionDialog = ({
                   >
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue placeholder="Selecione a categoria." />
+                        <SelectValue placeholder="Selecione a categoria..." />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
@@ -222,7 +227,7 @@ const UpsertTransactionDialog = ({
                   >
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue placeholder="Selecione o método de pagamento." />
+                        <SelectValue placeholder="Selecione um método de pagamento..." />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
