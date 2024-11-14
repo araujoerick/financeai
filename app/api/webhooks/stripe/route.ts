@@ -35,7 +35,7 @@ export const POST = async (request: Request) => {
       await clerkClient().users.updateUser(clerkUserId, {
         privateMetadata: {
           stripeCostumerId: customer,
-          stirpeSubscriptionId: subscription,
+          stripeSubscriptionId: subscription,
         },
         publicMetadata: {
           subscriptionPlan: "premium",
@@ -56,7 +56,7 @@ export const POST = async (request: Request) => {
       await clerkClient().users.updateUser(clerkUserId, {
         privateMetadata: {
           stripeCostumerId: null,
-          stirpeSubscriptionId: null,
+          stripeSubscriptionId: null,
         },
         publicMetadata: {
           subscriptionPlan: null,
