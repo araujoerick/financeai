@@ -13,8 +13,8 @@ const LoginPage = async () => {
   }
 
   return (
-    <div className="grid h-full grid-cols-2">
-      <div className="mx-auto flex h-full max-w-[550px] flex-col justify-center gap-8 p-8">
+    <div className="grid h-full grid-cols-1 sm:grid-cols-2">
+      <div className="order-2 mx-auto flex h-full max-w-[550px] flex-col gap-8 p-8 sm:order-1 sm:justify-center">
         <Image src="logo.svg" alt="Finance AI" width={173} height={39} />
         <div>
           <h1 className="mb-3 text-4xl font-bold">Bem-vindo</h1>
@@ -31,7 +31,7 @@ const LoginPage = async () => {
           </Button>
         </SignInButton>
       </div>
-      <div className="relative h-full w-full">
+      <div className="relative order-1 h-full w-full sm:order-2">
         <Image
           src="/login.png"
           alt="Faça login"
