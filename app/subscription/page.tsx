@@ -20,11 +20,11 @@ const SubscriptionPage = async () => {
   return (
     <>
       <Navbar />
-      <div className="max-w-screen-3xl mx-auto space-y-6 p-6">
+      <div className="max-w-screen-3xl mx-auto space-y-6 p-4 sm:p-6">
         <h1 className="text-2xl font-bold">Assinatura</h1>
 
-        <div className="flex flex-wrap justify-center gap-6">
-          <Card className="w-[450px]">
+        <div className="flex flex-col-reverse flex-wrap justify-center gap-6 sm:flex-row">
+          <Card className="mx-auto w-72 sm:w-[450px]">
             <CardHeader className="border-b border-solid py-8">
               <h2 className="text-center text-2xl font-semibold">
                 Plano Básico
@@ -38,7 +38,7 @@ const SubscriptionPage = async () => {
             <CardContent className="space-y-6 py-8">
               <div className="flex items-center gap-2">
                 <CheckIcon className="text-primary" />
-                <p>
+                <p className="max-w-[20ch] sm:max-w-full">
                   Apenas 10 transações por mês ({currentMonthTransactions}/10)
                 </p>
               </div>
@@ -49,14 +49,14 @@ const SubscriptionPage = async () => {
             </CardContent>
           </Card>
 
-          <Card className="w-[450px]">
-            <CardHeader className="relative border-b border-solid py-8">
+          <Card className="mx-auto w-72 sm:w-[450px]">
+            <CardHeader className="relative mt-1 border-b border-solid py-8">
               {hasPremiumPlan ? (
-                <Badge className="absolute left-6 top-10 bg-primary/10 text-sm text-primary">
+                <Badge className="absolute left-2 top-2 bg-primary/10 text-sm text-primary sm:left-6 sm:top-10">
                   Atual
                 </Badge>
               ) : (
-                <Badge className="absolute left-6 top-10 bg-primary/10 text-sm text-primary">
+                <Badge className="absolute left-2 top-2 bg-primary/10 text-sm text-primary sm:left-6 sm:top-10">
                   Popular
                 </Badge>
               )}
