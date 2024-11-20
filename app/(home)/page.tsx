@@ -33,35 +33,35 @@ const Home = async ({ searchParams: { month } }: HomeProps) => {
   const user = await clerkClient().users.getUser(userId);
   return (
     <>
-      <div className="overflow-y-auto">
-        <Navbar />
-        <div className="mx-auto flex h-full w-full max-w-[2012px] flex-col space-y-6 overflow-hidden p-6">
-          <div className="flex justify-between">
-            <h1 className="text-2xl font-bold">Dashboard</h1>
-            <div className="flex items-center gap-3">
-              <AiReportButton
-                month={month}
-                hasPremiumPlan={
-                  user.publicMetadata.subscriptionPlan === "premium"
-                }
+      <Navbar />
+      <div className="mx-auto flex h-full w-full max-w-[2012px] flex-col space-y-6 overflow-auto p-6 xl:overflow-hidden">
+        <div className="flex justify-between">
+          <h1 className="text-2xl font-bold">Dashboard</h1>
+          <div className="flex items-center gap-3">
+            <AiReportButton
+              month={month}
+              hasPremiumPlan={
+                user.publicMetadata.subscriptionPlan === "premium"
+              }
+            />
+            <TimeSelect />
+          </div>
+        </div>
+        <div className="grid h-full gap-6 overflow-auto xl:grid-cols-[2fr,1fr] xl:overflow-hidden">
+          <div className="flex flex-col gap-6 xl:overflow-hidden">
+            <SummaryCards
+              month={month}
+              {...dashboard}
+              userCanAddTransaction={userCanAddTransaction}
+            />
+            <div className="grid h-[400px] grid-cols-3 grid-rows-1 gap-6 xl:h-full xl:overflow-hidden">
+              <TransactionsPieChart {...dashboard} />
+              <ExpensesPerCategory
+                expensesPerCategory={dashboard.totalExpensePerCategory}
               />
-              <TimeSelect />
             </div>
           </div>
-          <div className="grid h-full gap-6 overflow-hidden xl:grid-cols-[2fr,1fr]">
-            <div className="flex flex-col gap-6 xl:overflow-hidden">
-              <SummaryCards
-                month={month}
-                {...dashboard}
-                userCanAddTransaction={userCanAddTransaction}
-              />
-              <div className="grid h-[400px] grid-cols-3 grid-rows-1 gap-6 xl:h-full xl:overflow-hidden">
-                <TransactionsPieChart {...dashboard} />
-                <ExpensesPerCategory
-                  expensesPerCategory={dashboard.totalExpensePerCategory}
-                />
-              </div>
-            </div>
+          <div>
             <LastTransactions lastTransactions={dashboard.lastTransactions} />
           </div>
         </div>
