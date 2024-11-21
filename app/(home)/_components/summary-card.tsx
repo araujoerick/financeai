@@ -20,7 +20,7 @@ const SummaryCard = ({
 }: SummaryCardProps) => {
   return (
     <Card
-      className={`${size === "large" ? "bg-white bg-opacity-5" : ""} hover:bg-white hover:bg-opacity-5`}
+      className={`${size === "large" ? "col-span-1 bg-white bg-opacity-5 md:col-span-3" : ""} hover:bg-white hover:bg-opacity-5`}
     >
       <CardHeader className="flex-row items-center gap-2 space-y-0">
         {icon}
@@ -30,7 +30,7 @@ const SummaryCard = ({
           {title}
         </p>
       </CardHeader>
-      <CardContent className="flex justify-between">
+      <CardContent className="flex flex-wrap justify-between gap-3">
         <div className="flex items-center gap-3">
           <p
             className={`font-bold ${size === "small" ? "text-2xl" : "text-4xl"}`}
