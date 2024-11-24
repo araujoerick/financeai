@@ -1,6 +1,5 @@
 import AddTransactionButton from "@/app/_components/add-transaction-button";
 import { Card, CardContent, CardHeader } from "@/app/_components/ui/card";
-import { EyeIcon } from "lucide-react";
 import { ReactNode } from "react";
 
 interface SummaryCardProps {
@@ -22,13 +21,22 @@ const SummaryCard = ({
     <Card
       className={`${size === "large" ? "col-span-1 bg-white bg-opacity-5 md:col-span-3" : ""} hover:bg-white hover:bg-opacity-5`}
     >
-      <CardHeader className="flex-row items-center gap-2 space-y-0">
-        {icon}
-        <p
-          className={`${size === "small" ? "text-muted-foreground" : "text-white opacity-70"}`}
-        >
-          {title}
-        </p>
+      <CardHeader className="flex flex-row items-center justify-between gap-2 space-y-0">
+        <div className="flex items-center gap-3">
+          {icon}
+          <p
+            className={`${size === "small" ? "text-muted-foreground" : "text-white opacity-70"}`}
+          >
+            {title}
+          </p>
+        </div>
+        {size === "large" && (
+          <div className="flex sm:hidden">
+            <AddTransactionButton
+              userCanAddTransaction={userCanAddTransaction}
+            />
+          </div>
+        )}
       </CardHeader>
       <CardContent className="flex flex-wrap justify-between gap-3">
         <div className="flex items-center gap-3">
@@ -40,11 +48,14 @@ const SummaryCard = ({
               currency: "BRL",
             }).format(amount)}
           </p>
-          {size === "large" && <EyeIcon size={28} />}
         </div>
 
         {size === "large" && (
-          <AddTransactionButton userCanAddTransaction={userCanAddTransaction} />
+          <div className="hidden sm:flex">
+            <AddTransactionButton
+              userCanAddTransaction={userCanAddTransaction}
+            />
+          </div>
         )}
       </CardContent>
     </Card>

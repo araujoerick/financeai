@@ -30,7 +30,7 @@ const AddTransactionButton = ({
               onClick={() => setDialogIsOpen(true)}
               disabled={!userCanAddTransaction}
             >
-              Adicionar Transação
+              <span className="hidden sm:block">Adicionar Transação</span>
               <ArrowDownUpIcon />
             </Button>
           </TooltipTrigger>

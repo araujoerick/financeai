@@ -118,7 +118,7 @@ const UpsertTransactionDialog = ({
     >
       <DialogTrigger asChild></DialogTrigger>
       <DialogContent className="h-full w-full max-w-full overflow-y-auto p-4 sm:h-auto sm:max-w-lg sm:p-6">
-        <DialogHeader>
+        <DialogHeader className="mt-10 sm:mt-auto">
           <DialogTitle>
             {isUpdate ? "Atualizar" : "Adicionar"} transação
           </DialogTitle>
@@ -128,7 +128,7 @@ const UpsertTransactionDialog = ({
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="max-h-[75vh] space-y-6 overflow-y-auto"
+            className="max-h-[75vh] space-y-6"
           >
             <FormField
               control={form.control}
