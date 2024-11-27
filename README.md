@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# <img src="https://github.com/user-attachments/assets/7aa14d9b-b91f-490d-bc00-1b97baf2694c" alt="Finance Ai logo" width="28px" height="28px"> Finance AI
 
-## Getting Started
+**`Finance`**
+**`AI Integration`**
+**`Portfolio`**
 
-First, run the development server:
+Essa é uma aplicação no modelo SaaS voltada para gestão financeira, oferecendo ferramentas úteis para que o usuário possa registrar e acompanhar a evolução de suas finanças, além de receber insights da Gemini AI baseado em suas finanças.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 🔧 Tecnologias e ferramentas utilizadas:
+- Next.js
+- TypeScript
+- Prisma
+- PostgreSQL
+- NeonDB
+- Tailwind CSS
+- Shadcn
+- Stripe
+- Clerk
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### :camera: Capturas do projeto:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/8d9eda00-eb73-4119-bb7b-ca8b82913809" alt="">
+  <img src="https://github.com/user-attachments/assets/eca79677-486b-4184-ba0c-fa6acd099259" alt="">
+  <img src="https://github.com/user-attachments/assets/0a48f403-7b7f-49de-ad35-c84e660658aa" alt="">
+  <img src="https://github.com/user-attachments/assets/13bcec91-a153-4e66-a674-34be809dc241" alt="">
+</div>
